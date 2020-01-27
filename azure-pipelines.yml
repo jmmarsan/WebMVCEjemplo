@@ -23,15 +23,4 @@ steps:
 
 - task: VSBuild@1
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Evaluación gratuita(004b441e-aab0-4363-8310-981615c7f11e)'
-    appType: 'webApp'
-    WebAppName: 'pruebajmmarsan'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    solution: '**\*.sln'
